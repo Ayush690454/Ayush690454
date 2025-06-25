@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Ayush Kaushik</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --secondary: #6b7280;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --background: white;
+            --text: #1e293b;
+        }
+        
+        .dark-mode {
+            --primary: #60a5fa;
+            --primary-dark: #3b82f6;
+            --secondary: #9ca3af;
+            --dark: #f8fafc;
+            --light: #1e293b;
+            --background: #0f172a;
+            --text: #f8fafc;
+        }
+        
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .skill-bar {
+            width: 100%;
+            height: 10px;
+            background-color: #e5e7eb;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background-color: var(--primary);
+            border-radius: 5px;
+            position: relative;
+            transition: width 1.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .theme-toggle {
+            transition: transform 0.3s ease;
+        }
+        
+        .theme-toggle:hover {
+            transform: rotate(30deg);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <header class="fixed w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm z-50 shadow-sm">
+        <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="text-xl font-bold text-indigo-600 dark:text-indigo-400">Portfolio</div>
+            <div class="flex items-center space-x-8">
+                <a href="#home" class="nav-link text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">Home</a>
+                <a href="#about" class="nav-link text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">About</a>
+                <a href="#skills" class="nav-link text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">Skills</a>
+                <a href="#projects" class="nav-link text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">Projects</a>
+                <a href="#contact" class="nav-link text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400">Contact</a>
+                <button id="theme-toggle" class="theme-toggle p-2 rounded-full hover:bg-gray-200 dark:hover:bg-slate-700">
+                    <i class="fas fa-moon text-gray-700 dark:text-yellow-300"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="min-h-screen flex items-center pt-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0 fade-in">
+                <div class="text-indigo-500 font-medium mb-2">Hello, I'm</div>
+                <h1 class="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4">Ayush Kaushik</h1>
+                <h2 class="text-2xl md:text-3xl font-semibold text-gray-600 dark:text-gray-300 mb-6">
+                    BTech <span class="text-indigo-500">IT Student</span> & Developer
+                </h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-lg">
+                    Passionate about building innovative solutions with modern technologies. 
+                    Currently pursuing my BTech in Information Technology with a focus on web development and problem solving.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#contact" class="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-medium transition duration-300">
+                        Contact Me
+                    </a>
+                    <a href="#projects" class="px-6 py-3 border border-indigo-600 text-indigo-600 hover:bg-indigo-50 dark:hover:bg-slate-800 rounded-lg font-medium transition duration-300">
+                        View Projects
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center fade-in" style="animation-delay: 0.2s;">
+                <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-indigo-500 shadow-xl">
+                    <div class="w-full h-full bg-gradient-to-r from-indigo-400 to-purple-500 flex items-center justify-center text-white text-6xl">
+                        AK
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-gray-50 dark:bg-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">About <span class="text-indigo-500">Me</span></h2>
+                <div class="w-20 h-1 bg-indigo-500 mx-auto"></div>
+            </div>
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/3 flex justify-center fade-in">
+                    <div class="w-64 h-64 rounded-2xl overflow-hidden border-4 border-indigo-500 shadow-lg">
+                        <div class="w-full h-full flex items-center justify-center bg-gray-100 dark:bg-slate-700">
+                            <i class="fas fa-user-graduate text-6xl text-indigo-500"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-2/3 fade-in" style="animation-delay: 0.2s;">
+                    <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-4">BTech in Information Technology</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">
+                        I'm a final year student pursuing my Bachelor's degree in Information Technology with a strong foundation in 
+                        computer science principles and programming. My academic journey has equipped me with both theoretical knowledge 
+                        and practical skills to solve complex problems.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div class="flex items-start">
+                            <div class="text-indigo-500 mr-4 mt-1">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800 dark:text-white">Problem Solving</h4>
+                                <p class="text-gray-600 dark:text-gray-400">Expertise in Data Structures & Algorithms with 500+ problems solved</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-indigo-500 mr-4 mt-1">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800 dark:text-white">Full Stack Development</h4>
+                                <p class="text-gray-600 dark:text-gray-400">Building modern web applications using MERN stack</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-indigo-500 mr-4 mt-1">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800 dark:text-white">Python Programming</h4>
+                                <p class="text-gray-600 dark:text-gray-400">Developing scripts, automation tools and ML models</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-indigo-500 mr-4 mt-1">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800 dark:text-white">Collaboration</h4>
+                                <p class="text-gray-600 dark:text-gray-400">Experience working in agile teams with Git/GitHub</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="inline-flex items-center text-indigo-500 hover:text-indigo-700 dark:hover:text-indigo-400 font-medium">
+                        Download Resume <i class="fas fa-download ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">My <span class="text-indigo-500">Skills</span></h2>
+                <div class="w-20 h-1 bg-indigo-500 mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="fade-in">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-6">Technical Skills</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700 dark:text-gray-300">MERN Stack</span>
+                                <span class="text-gray-500">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700 dark:text-gray-300">Python</span>
+                                <span class="text-gray-500">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700 dark:text-gray-300">Data Structures & Algorithms</span>
+                                <span class="text-gray-500">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700 dark:text-gray-300">Databases (MongoDB, SQL)</span>
+                                <span class="text-gray-500">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-in" style="animation-delay: 0.2s;">
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-6">Professional Skills</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700 dark:text-gray-300">Problem Solving</span>
+                                <span class="text-gray-500">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700 dark:text-gray-300">Team Collaboration</span>
+                                <span class="text-gray-500">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700 dark:text-gray-300">Communication</span>
+                                <span class="text-gray-500">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700 dark:text-gray-300">Project Management</span>
+                                <span class="text-gray-500">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-16 fade-in" style="animation-delay: 0.4s;">
+                <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-6">Technologies & Tools</h3>
+                <div class="flex flex-wrap gap-6 justify-center">
+                    <div class="w-24 h-24 flex flex-col items-center justify-center p-4 rounded-xl bg-gray-100 dark:bg-slate-700 hover:shadow-lg transition">
+                        <i class="fab fa-react text-4xl text-blue-500"></i>
+                        <span class="mt-2 text-sm text-gray-700 dark:text-gray-300">React</span>
+                    </div>
+                    <div class="w-24 h-24 flex flex-col items-center justify-center p-4 rounded-xl bg-gray-100 dark:bg-slate-700 hover:shadow-lg transition">
+                        <i class="fab fa-node-js text-4xl text-green-500"></i>
+                        <span class="mt-2 text-sm text-gray-700 dark:text-gray-300">Node.js</span>
+                    </div>
+                    <div class="w-24 h-24 flex flex-col items-center justify-center p-4 rounded-xl bg-gray-100 dark:bg-slate-700 hover:shadow-lg transition">
+                        <i class="fab fa-python text-4xl text-yellow-500"></i>
+                        <span class="mt-2 text-sm text-gray-700 dark:text-gray-300">Python</span>
+                    </div>
+                    <div class="w-24 h-24 flex flex-col items-center justify-center p-4 rounded-xl bg-gray-100 dark:bg-slate-700 hover:shadow-lg transition">
+                        <i class="fas fa-database text-4xl text-blue-400"></i>
+                        <span class="mt-2 text-sm text-gray-700 dark:text-gray-300">MongoDB</span>
+                    </div>
+                    <div class="w-24 h-24 flex flex-col items-center justify-center p-4 rounded-xl bg-gray-100 dark:bg-slate-700 hover:shadow-lg transition">
+                        <i class="fab fa-js text-4xl text-yellow-300"></i>
+                        <span class="mt-2 text-sm text-gray-700 dark:text-gray-300">JavaScript</span>
+                    </div>
+                    <div class="w-24 h-24 flex flex-col items-center justify-center p-4 rounded-xl bg-gray-100 dark:bg-slate-700 hover:shadow-lg transition">
+                        <i class="fab fa-html5 text-4xl text-orange-500"></i>
+                        <span class="mt-2 text-sm text-gray-700 dark:text-gray-300">HTML5</span>
+                    </div>
+                    <div class="w-24 h-24 flex flex-col items-center justify-center p-4 rounded-xl bg-gray-100 dark:bg-slate-700 hover:shadow-lg transition">
+                        <i class="fab fa-css3 text-4xl text-blue-600"></i>
+                        <span class="mt-2 text-sm text-gray-700 dark:text-gray-300">CSS3</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-20 bg-gray-50 dark:bg-slate-800">
+        <div class="max-w-
