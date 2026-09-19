@@ -1,7 +1,7 @@
 - 👋 Hi, I’m @Ayush690454
 - 👀 I’m interested in developing and working on the real world problems... 
-- 🌱 I’m currently learning **MERN STACK** as a new **TECHNICAL SKILL**
-- 💞️ I’m looking to collaborate on any opportunities..
+- 🌱 I’m currently working as a **Data Engineer** in **Chetu INC**
+- 💞️ I’m looking to collaborate on any opportunities.
 - 📫 How to reach me https://www.linkedin.com/in/ayush-kaushik-453123314/
 
 
